@@ -32,7 +32,7 @@ struct   CalculatorBrain {
     }
     
     mutating func expectedScoreCalc (result:Int,hcp:Int,vulnNum:Int) ->Int {
-        let hcpMoreThanTwenty = hcp - 10 //hcp is HCP > 10; tables are set up for hcp>20
+        let hcpMoreThanTwenty = hcp - 20 //tables are set up for hcp>20
         if hcpMoreThanTwenty >= 0 {
             expectedScore = tables.expectedScoreDifference[hcpMoreThanTwenty][vulnNum]
         } else {
@@ -69,7 +69,7 @@ struct   CalculatorBrain {
         }
         return minValue
     }
-
+/*
     func minorMajorLookup (suitText:String)-> String {
         var minorMajor: String
     
@@ -80,7 +80,7 @@ struct   CalculatorBrain {
             }
         return minorMajor
         }
-    
+    */
     func bridgeScoreLookup(suit:String,result:Int,double:Int) -> Int {
         let bridgeScore :  Int
         switch suit {
