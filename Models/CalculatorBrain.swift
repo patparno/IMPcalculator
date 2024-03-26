@@ -12,13 +12,6 @@ struct   CalculatorBrain {
     var expectedScore = -1
     var contractScore = -1
 
-/*
-    mutating func bridgeScoreCalc (suit:String, double:Int) -> String {
-        let result = 0
-        let bridgeScore = bridgeScoreLookup(suit:suit,result:result,double:double)
-        return String(bridgeScore)
-    }
- */
     
     mutating func impPoints (suit:String,result:Int,vulnNum:Int,double:Int) -> String {
       //  expectedScore = expectedScoreCalc(result:result,hcp:hcp,vulnNum:vulnNum)
@@ -32,6 +25,7 @@ struct   CalculatorBrain {
     }
     
     mutating func expectedScoreCalc (result:Int,hcp:Int,vulnNum:Int) ->Int {
+
         let hcpMoreThanTwenty = hcp - 20 //tables are set up for hcp>20
         if hcpMoreThanTwenty >= 0 {
             expectedScore = tables.expectedScoreDifference[hcpMoreThanTwenty][vulnNum]
@@ -40,11 +34,11 @@ struct   CalculatorBrain {
             expectedScore = tables.expectedScoreDifference[otherTeamScoreAbove20][vulnNum]
             expectedScore = -expectedScore
         }
-        print("expectedScore \(expectedScore)")
         return expectedScore
     }
     
     mutating func contractScoreCalc (vulnNum:Int,suit:String,result:Int,double:Int) -> Int {
+
          if result >= 0 {
              contractScore = bridgeScoreLookup(suit: suit, result: result, double: double)
         } else {
@@ -55,7 +49,6 @@ struct   CalculatorBrain {
             }
             contractScore = -contractScore
         }
-        print ("contractScore \(contractScore)")
         return contractScore
     }
     
@@ -69,18 +62,7 @@ struct   CalculatorBrain {
         }
         return minValue
     }
-/*
-    func minorMajorLookup (suitText:String)-> String {
-        var minorMajor: String
-    
-        if suitText == "Clubs" || suitText == "Diamonds"{
-            minorMajor = "Minor"} else {
-                if suitText == "Hearts" || suitText == "Spades" {
-                    minorMajor = "Major"} else { minorMajor = "NT" }
-            }
-        return minorMajor
-        }
-    */
+
     func bridgeScoreLookup(suit:String,result:Int,double:Int) -> Int {
         let bridgeScore :  Int
         switch suit {

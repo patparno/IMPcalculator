@@ -18,6 +18,9 @@
 		A42E43972BA3E80D0090C4C3 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42E43942BA3E80D0090C4C3 /* CalculatorBrain.swift */; };
 		A42E43982BA3E80D0090C4C3 /* Tables.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42E43952BA3E80D0090C4C3 /* Tables.swift */; };
 		A42E43A52BA3FBFE0090C4C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A42E43A42BA3FBFE0090C4C3 /* Assets.xcassets */; };
+		A4D5848E2BB3340300C1814A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42254D62BA3ABD1004EBF0C /* ViewController.swift */; };
+		A4D5848F2BB3340300C1814A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42254D62BA3ABD1004EBF0C /* ViewController.swift */; };
+		A4D584912BB3375000C1814A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D584902BB3375000C1814A /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,8 @@
 		A42E43942BA3E80D0090C4C3 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 		A42E43952BA3E80D0090C4C3 /* Tables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tables.swift; sourceTree = "<group>"; };
 		A42E43A42BA3FBFE0090C4C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A4D584902BB3375000C1814A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A4DECC0F2BB224820029CBDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../temp4assets/temp4assets/Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,7 @@
 		A42254C62BA3ABD1004EBF0C = {
 			isa = PBXGroup;
 			children = (
+				A4D584902BB3375000C1814A /* Assets.xcassets */,
 				A42E43962BA3E80D0090C4C3 /* Models */,
 				A42254D12BA3ABD1004EBF0C /* IMP Calculator */,
 				A42254E82BA3ABD3004EBF0C /* IMP CalculatorTests */,
@@ -128,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				A42E43A42BA3FBFE0090C4C3 /* Assets.xcassets */,
+				A4DECC0F2BB224820029CBDD /* Assets.xcassets */,
 				A42254F32BA3ABD3004EBF0C /* IMP_CalculatorUITests.swift */,
 				A42254F52BA3ABD3004EBF0C /* IMP_CalculatorUITestsLaunchTests.swift */,
 			);
@@ -265,6 +272,7 @@
 			files = (
 				A42254DF2BA3ABD2004EBF0C /* Base in Resources */,
 				A42254DA2BA3ABD1004EBF0C /* Base in Resources */,
+				A4D584912BB3375000C1814A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4D5848F2BB3340300C1814A /* ViewController.swift in Sources */,
 				A42254EA2BA3ABD3004EBF0C /* IMP_CalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4D5848E2BB3340300C1814A /* ViewController.swift in Sources */,
 				A42254F42BA3ABD3004EBF0C /* IMP_CalculatorUITests.swift in Sources */,
 				A42254F62BA3ABD3004EBF0C /* IMP_CalculatorUITestsLaunchTests.swift in Sources */,
 			);
@@ -474,6 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QGRR695L8T;
@@ -482,8 +493,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -507,6 +517,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QGRR695L8T;
@@ -515,8 +526,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

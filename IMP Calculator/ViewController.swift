@@ -13,14 +13,15 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     let tables = Tables()
     
     var hcpList = (15...40).map {$0}
-    var resultList = (-7...7).map {$0}
+    var resultList = (-7...7).map {String($0)}
     var contractLevel = 1
     var minorMajor = "Major"
     var double = 0
     var vuln = "N"
     var vulnNum = 1
-    var totalHCP = 25
+    var totalHCP = 15
     var tricksTaken = 10
+    var tricksTakenText = "10"
     
     @IBOutlet weak var hcpPicker: UIPickerView!
     @IBOutlet weak var tricksTakenPicker: UIPickerView!
@@ -34,6 +35,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var actualScore: UILabel!
     @IBOutlet weak var impPoints: UILabel!
     
+    @IBOutlet weak var calculateButton: UIButton!
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -44,16 +48,23 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         self.hcpPicker.delegate = self
         self.tricksTakenPicker.delegate = self
         self.tricksTakenPicker.dataSource = self
-        contractSelector.selectedSegmentIndex = 0
-        suitSelector.selectedSegmentIndex = 0
-        doubleSelector.selectedSegmentIndex = 0
+        setUpSuitColors()
+      
+    }
+    func setUpSuitColors () {
+        for i in 0...4 {
+            suitSelector.setWidth(50, forSegmentAt: i)
+        }
+        suitSelector.layer.borderWidth = 0
+        suitSelector.backgroundColor = UIColor.black
+        suitSelector.layer.borderColor = UIColor.white.cgColor
     }
     
     @IBAction func calculateButton(_ sender: UIButton) {
         let suit = String(vuln) + String(contractLevel) + minorMajor
-        print("suit \(suit)")
+
         expectedScore.text = String(cb.expectedScoreCalc(result: tricksTaken, hcp: totalHCP, vulnNum: vulnNum))
-        print("vuln: \(vuln), suit: \(suit), result \(tricksTaken), double \(double)")
+
         actualScore.text = String(cb.contractScoreCalc(vulnNum: vulnNum, suit: suit, result: tricksTaken, double: double))
         impPoints.text = cb.impPoints(suit: suit, result: tricksTaken, vulnNum: vulnNum, double: double)
     }
@@ -61,7 +72,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     @IBAction func contractSelector(_ sender: UISegmentedControl) {
         contractLevel = contractSelector.selectedSegmentIndex + 1
-        print("contractLevel \(contractLevel)")
+       
+        let leftEdge = -(contractLevel + 6)
+        let rightEdge = 7 - contractLevel
+        resultList = (leftEdge...rightEdge).map { String($0 > 0 ? "+\($0)" : "\($0)") }
+        self.tricksTakenPicker.isUserInteractionEnabled = true
+        self.tricksTakenPicker.reloadAllComponents()
+
     }
     
     @IBAction func suitSelector(_ sender: UISegmentedControl) {
@@ -71,10 +88,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         case 2: minorMajor = "Major"
         case 3: minorMajor = "Major"
         case 4: minorMajor = "NT"
-            
         default: break
         }
-        print("minorMajor = \(minorMajor)")
+      
     }
     
     @IBAction func doubleSelector(_ sender: UISegmentedControl) {
@@ -87,7 +103,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             double = 2
         default: break
         }
-        print ("double = \(double)")
+        
     }
     
     @IBAction func vulnSelector(_ sender: UISegmentedControl) {
@@ -100,7 +116,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             vulnNum = 2
         default: break
         }
-        print ("vuln = \(vuln)")
+        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -124,18 +140,23 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         case  0:
             totalHCP = hcpList[row]
         case 1:
-            tricksTaken = resultList[row]
+            tricksTaken = Int(resultList[row])!
+            self.calculateButton.isEnabled = true
+            self.calculateButton.isUserInteractionEnabled = true
         default:
             print("you messed up")
         }
-       
     }
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView.tag {
         case  0:
             return String(hcpList[row])
+
         case 1:
-            return String(resultList[row])
+            let equalAddedList = (resultList.map {$0 == "0" ? "=" : $0 })
+
+            return equalAddedList[row]
         default:
             return nil
         }
