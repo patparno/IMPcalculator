@@ -12,15 +12,15 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     var cb = CalculatorBrain()
     let tables = Tables()
     
-    var hcpList = (15...40).map {$0}
-    var resultList = (-7...7).map {String($0)}
+    var hcpList = (10...40).map {$0}
+    var resultList = (-7...1).map {String($0)}
     var contractLevel = 1
     var minorMajor = "Major"
     var double = 0
     var vuln = "N"
     var vulnNum = 1
     var totalHCP = 15
-    var tricksTaken = 10
+    var tricksTaken = 1
     var tricksTakenText = "10"
     
     @IBOutlet weak var hcpPicker: UIPickerView!
@@ -48,25 +48,25 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         self.hcpPicker.delegate = self
         self.tricksTakenPicker.delegate = self
         self.tricksTakenPicker.dataSource = self
-        setUpSuitColors()
-      
     }
-    func setUpSuitColors () {
-        for i in 0...4 {
-            suitSelector.setWidth(50, forSegmentAt: i)
-        }
-        suitSelector.layer.borderWidth = 0
-        suitSelector.backgroundColor = UIColor.black
-        suitSelector.layer.borderColor = UIColor.white.cgColor
+
+    func resetSuits () {
+        suitSelector.setImage(UIImage(named: "clubs1024"), forSegmentAt: 0)
+        suitSelector.setImage(UIImage(named: "diamonds1024"), forSegmentAt: 1)
+        suitSelector.setImage(UIImage(named: "hearts1024"), forSegmentAt: 2)
+        suitSelector.setImage(UIImage(named: "spades1024"), forSegmentAt: 3)
+        suitSelector.setImage(UIImage(named: "No Trump1024"), forSegmentAt: 4)
     }
     
     @IBAction func calculateButton(_ sender: UIButton) {
         let suit = String(vuln) + String(contractLevel) + minorMajor
-
+        print("suit \(suit), tricksTaken \(tricksTaken), vul \(vuln), double \(double)")
         expectedScore.text = String(cb.expectedScoreCalc(result: tricksTaken, hcp: totalHCP, vulnNum: vulnNum))
-
+        print("expected score went ok")
         actualScore.text = String(cb.contractScoreCalc(vulnNum: vulnNum, suit: suit, result: tricksTaken, double: double))
+        print("actual score went ok")
         impPoints.text = cb.impPoints(suit: suit, result: tricksTaken, vulnNum: vulnNum, double: double)
+        print("imp points went ok")
     }
     
     
@@ -76,21 +76,36 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         let leftEdge = -(contractLevel + 6)
         let rightEdge = 7 - contractLevel
         resultList = (leftEdge...rightEdge).map { String($0 > 0 ? "+\($0)" : "\($0)") }
-        self.tricksTakenPicker.isUserInteractionEnabled = true
+        //self.tricksTakenPicker.isUserInteractionEnabled = true
         self.tricksTakenPicker.reloadAllComponents()
 
     }
     
     @IBAction func suitSelector(_ sender: UISegmentedControl) {
+
         switch sender.selectedSegmentIndex {
-        case 0: minorMajor = "Minor"
-        case 1: minorMajor = "Minor"
-        case 2: minorMajor = "Major"
-        case 3: minorMajor = "Major"
-        case 4: minorMajor = "NT"
+        case 0: 
+            minorMajor = "Minor"
+            resetSuits()
+            suitSelector.setImage(UIImage(named: "clubs1024white"), forSegmentAt: 0)
+        case 1:
+            minorMajor = "Minor"
+            resetSuits()
+            suitSelector.setImage(UIImage(named: "diamonds1024blue"), forSegmentAt: 1)
+        case 2:
+            minorMajor = "Major"
+            resetSuits()
+            suitSelector.setImage(UIImage(named: "hearts1024blue"), forSegmentAt: 2)
+        case 3:
+            minorMajor = "Major"
+            resetSuits()
+            suitSelector.setImage(UIImage(named: "spades1024white"), forSegmentAt: 3)
+        case 4:
+            minorMajor = "NT"
+            resetSuits()
+            suitSelector.setImage(UIImage(named: "No Trump1024black"), forSegmentAt: 4)
         default: break
         }
-      
     }
     
     @IBAction func doubleSelector(_ sender: UISegmentedControl) {
@@ -141,6 +156,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             totalHCP = hcpList[row]
         case 1:
             tricksTaken = Int(resultList[row])!
+            calculateButton.backgroundColor = UIColor.yellow
             self.calculateButton.isEnabled = true
             self.calculateButton.isUserInteractionEnabled = true
         default:

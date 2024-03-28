@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,22 +38,38 @@
                                     <action selector="contractSelector:" destination="BYZ-38-t0r" eventType="valueChanged" id="8dr-fc-JEf"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contract" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSb-kZ-XDT">
-                                <rect key="frame" x="27" y="89" width="71" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSb-kZ-XDT">
+                                <rect key="frame" x="26.999999999999993" y="89" width="115.33333333333331" height="27.333333333333329"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Contract">
+                                        <attributes>
+                                            <font key="NSFont" size="24" name="CourierNewPS-BoldItalicMT"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Declarer Team HCP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DvM-mp-5dV">
-                                <rect key="frame" x="27" y="354" width="157" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DvM-mp-5dV">
+                                <rect key="frame" x="27" y="354" width="187.33333333333334" height="28.333333333333314"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Declarer Team">
+                                        <attributes>
+                                            <font key="NSFont" size="24" name="CourierNewPS-BoldItalicMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tricks Taken vs Contract" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIv-aK-ACe">
-                                <rect key="frame" x="27" y="541" width="196.66666666666666" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIv-aK-ACe">
+                                <rect key="frame" x="27" y="541" width="173" height="26.333333333333371"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Tricks Taken">
+                                        <attributes>
+                                            <font key="NSFont" size="24" name="CourierNewPS-BoldItalicMT"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMP Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rpl-c2-w0b">
@@ -75,7 +91,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="8FP-wI-Gd6">
-                                <rect key="frame" x="192" y="284" width="178" height="216"/>
+                                <rect key="frame" x="222.33333333333337" y="284" width="147.66666666666663" height="216"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="bFH-qc-hbW"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PKz-l2-IBs"/>
@@ -108,22 +124,20 @@
                                     <action selector="vulnSelector:" destination="BYZ-38-t0r" eventType="valueChanged" id="7P9-fb-vXF"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ql-db-fvC">
-                                <rect key="frame" x="131.66666666666666" y="781" width="103.33333333333334" height="36"/>
-                                <color key="backgroundColor" red="0.97254901959999995" green="1" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                            <button toolTip="choose contract first" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="249" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ql-db-fvC">
+                                <rect key="frame" x="136" y="760.33333333333337" width="121" height="42.666666666666629"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="plain" title="Calculate" cornerStyle="capsule">
                                     <backgroundConfiguration key="background">
-                                        <color key="strokeColor" systemColor="tintColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Calculate">
-                                            <attributes>
-                                                <font key="NSFont" size="19" name="Helvetica"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -137,83 +151,118 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwt-hK-KHh">
-                                <rect key="frame" x="308" y="695.66666666666663" width="13.333333333333314" height="26.333333333333371"/>
+                                <rect key="frame" x="310" y="696" width="13.333333333333314" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="jk4-d8-YOp">
-                                <rect key="frame" x="231.66666666666663" y="471" width="145.33333333333337" height="216"/>
+                            <pickerView tag="1" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="jk4-d8-YOp">
+                                <rect key="frame" x="222" y="471" width="147" height="216"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="E5F-qv-2gV"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="2rc-yf-OkW"/>
                                 </connections>
                             </pickerView>
-                            <segmentedControl autoresizesSubviews="NO" opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TVG-O5-RSJ">
+                            <segmentedControl autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="TVG-O5-RSJ">
                                 <rect key="frame" x="70" y="185" width="250" height="32"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                 <segments>
-                                    <segment title="" image="clubs1024"/>
+                                    <segment title="">
+                                        <imageReference key="image" image="clubs1024" symbolScale="large"/>
+                                    </segment>
                                     <segment title="" image="diamonds1024"/>
                                     <segment title="" image="hearts1024"/>
                                     <segment title="" image="spades1024"/>
                                     <segment title="" image="No Trump1024"/>
                                 </segments>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="selectedSegmentTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="suitSelector:" destination="BYZ-38-t0r" eventType="valueChanged" id="x8l-hY-rjn"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5U-bo-kjK">
+                                <rect key="frame" x="27" y="388.33333333333331" width="129.66666666666666" height="27.333333333333314"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Total HCP">
+                                        <attributes>
+                                            <font key="NSFont" size="24" name="CourierNewPS-BoldItalicMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ac-hz-y1L">
+                                <rect key="frame" x="27" y="573.33333333333337" width="158.66666666666666" height="27.333333333333371"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="vs Contract">
+                                        <attributes>
+                                            <font key="NSFont" size="24" name="CourierNewPS-BoldItalicMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.79571230400624937" green="0.99773257613693622" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Ys3-zh-hwI" firstAttribute="top" secondItem="bSb-kZ-XDT" secondAttribute="bottom" constant="14" id="0AJ-1f-9XU"/>
+                            <constraint firstItem="2ac-hz-y1L" firstAttribute="top" secondItem="YIv-aK-ACe" secondAttribute="bottom" constant="6" id="0fS-6x-07l"/>
                             <constraint firstItem="DvM-mp-5dV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="1qN-Qn-TsW"/>
+                            <constraint firstItem="2ac-hz-y1L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="1uJ-uq-F3T"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eZv-84-ZJ8" secondAttribute="bottom" constant="91" id="24x-fd-yZx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dCZ-kY-Lmd" secondAttribute="trailing" constant="16" id="3Kn-97-QYE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jk4-d8-YOp" secondAttribute="trailing" constant="16" id="6n8-ka-zmC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bSb-kZ-XDT" secondAttribute="trailing" symbolic="YES" id="54W-oA-E8Y"/>
+                            <constraint firstItem="jk4-d8-YOp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="222" id="5XZ-5j-pdG"/>
+                            <constraint firstItem="TVG-O5-RSJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="126" id="5nH-6g-Q4W"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jk4-d8-YOp" secondAttribute="trailing" constant="24" id="6n8-ka-zmC"/>
+                            <constraint firstItem="Ys3-zh-hwI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="80g-Pk-k7a"/>
                             <constraint firstItem="TVG-O5-RSJ" firstAttribute="top" secondItem="Ys3-zh-hwI" secondAttribute="bottom" constant="29" id="96N-PI-Cpf"/>
                             <constraint firstItem="DvM-mp-5dV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="295" id="9Qh-PN-kbk"/>
+                            <constraint firstItem="cwt-hK-KHh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eZv-84-ZJ8" secondAttribute="trailing" symbolic="YES" id="Cg3-wD-308"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eQm-xN-lRk" secondAttribute="trailing" constant="70.666666666666686" id="DFn-4S-2JP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2ac-hz-y1L" secondAttribute="trailing" symbolic="YES" id="Dnv-qK-ZCm"/>
                             <constraint firstItem="bSb-kZ-XDT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="DqO-8S-z0h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eQm-xN-lRk" secondAttribute="bottom" constant="126" id="EQ3-xh-5Ue"/>
                             <constraint firstItem="GkH-Jh-bc3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rpl-c2-w0b" secondAttribute="trailing" constant="8" symbolic="YES" id="Gmv-7l-YWM"/>
                             <constraint firstItem="jk4-d8-YOp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="412" id="Hos-Hn-fdW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3Ql-db-fvC" secondAttribute="bottom" constant="1" id="HyW-fr-Oqu"/>
+                            <constraint firstItem="3Ql-db-fvC" firstAttribute="centerX" secondItem="Ys3-zh-hwI" secondAttribute="centerX" id="JXQ-EI-Rxr"/>
                             <constraint firstItem="TVG-O5-RSJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="N1g-na-7df"/>
                             <constraint firstItem="8FP-wI-Gd6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DvM-mp-5dV" secondAttribute="trailing" constant="8" symbolic="YES" id="PM0-Yx-Ifb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YIv-aK-ACe" secondAttribute="trailing" symbolic="YES" id="RI7-rn-7cB"/>
                             <constraint firstItem="dCZ-kY-Lmd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="190" id="S5R-xM-4JO"/>
                             <constraint firstItem="P8d-bi-M8d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="114" id="VUY-BN-dxw"/>
                             <constraint firstItem="wY2-1a-B4M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="XAQ-Pm-xDS"/>
                             <constraint firstItem="bSb-kZ-XDT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="XDM-Iw-DgV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wY2-1a-B4M" secondAttribute="bottom" constant="126" id="XDh-Ru-vEb"/>
-                            <constraint firstItem="cwt-hK-KHh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eZv-84-ZJ8" secondAttribute="trailing" symbolic="YES" id="XYY-yR-xon"/>
+                            <constraint firstItem="cwt-hK-KHh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eZv-84-ZJ8" secondAttribute="trailing" constant="8" symbolic="YES" id="XYY-yR-xon"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="P8d-bi-M8d" secondAttribute="trailing" symbolic="YES" id="Xwc-Mg-8mM"/>
-                            <constraint firstItem="Ys3-zh-hwI" firstAttribute="leading" secondItem="c8e-eD-I5p" secondAttribute="leading" id="cIq-1m-Mfr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bSb-kZ-XDT" secondAttribute="trailing" symbolic="YES" id="cLQ-p0-hQh"/>
+                            <constraint firstItem="8FP-wI-Gd6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="E5U-bo-kjK" secondAttribute="trailing" constant="8" symbolic="YES" id="YZV-Vp-fkf"/>
+                            <constraint firstItem="Ys3-zh-hwI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="66" id="d0v-Og-Eed"/>
                             <constraint firstItem="eZv-84-ZJ8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="dgR-oM-nry"/>
                             <constraint firstItem="eQm-xN-lRk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wY2-1a-B4M" secondAttribute="trailing" symbolic="YES" id="dmg-io-Vaa"/>
                             <constraint firstItem="P8d-bi-M8d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fQy-XC-nzE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cwt-hK-KHh" secondAttribute="bottom" constant="96" id="fyx-g2-Eld"/>
                             <constraint firstItem="c8e-eD-I5p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="g6b-J6-cdA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cwt-hK-KHh" secondAttribute="trailing" constant="71.666666666666686" id="gYk-jm-bbE"/>
+                            <constraint firstItem="E5U-bo-kjK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="gAW-ZE-4GR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GkH-Jh-bc3" secondAttribute="trailing" constant="68" id="ga4-1o-sTa"/>
+                            <constraint firstItem="E5U-bo-kjK" firstAttribute="top" secondItem="DvM-mp-5dV" secondAttribute="bottom" constant="6" id="iJn-02-wYC"/>
                             <constraint firstItem="c8e-eD-I5p" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="190" id="iLx-Ot-5bi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8FP-wI-Gd6" secondAttribute="trailing" constant="23" id="jLd-So-tHR"/>
-                            <constraint firstItem="3Ql-db-fvC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="131.66666666666666" id="jvi-W4-eJS"/>
                             <constraint firstItem="YIv-aK-ACe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="482" id="kfs-uc-8SA"/>
-                            <constraint firstItem="Ys3-zh-hwI" firstAttribute="trailing" secondItem="dCZ-kY-Lmd" secondAttribute="trailing" id="m20-yU-gW9"/>
+                            <constraint firstItem="Ys3-zh-hwI" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dCZ-kY-Lmd" secondAttribute="trailing" id="m20-yU-gW9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Rpl-c2-w0b" secondAttribute="bottom" constant="56" id="rtF-Nj-jEr"/>
                             <constraint firstItem="8FP-wI-Gd6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="225" id="tdd-HE-0dk"/>
-                            <constraint firstItem="jk4-d8-YOp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YIv-aK-ACe" secondAttribute="trailing" constant="8" symbolic="YES" id="tu8-iO-YSm"/>
                             <constraint firstItem="dCZ-kY-Lmd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c8e-eD-I5p" secondAttribute="trailing" constant="8" symbolic="YES" id="ucv-0n-DOU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cwt-hK-KHh" secondAttribute="trailing" constant="69.666666666666686" id="vAN-U0-2qS"/>
                             <constraint firstItem="YIv-aK-ACe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="vin-hO-KD8"/>
                             <constraint firstItem="Rpl-c2-w0b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="wxb-HA-byN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TVG-O5-RSJ" secondAttribute="trailing" constant="73" id="y9F-aF-zhG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GkH-Jh-bc3" secondAttribute="bottom" constant="57" id="yHg-uA-8LF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3Ql-db-fvC" secondAttribute="trailing" symbolic="YES" id="zVv-tP-qk6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3Ql-db-fvC" secondAttribute="bottom" constant="15" id="z6i-bo-Q0U"/>
                         </constraints>
                     </view>
                     <connections>
@@ -236,12 +285,9 @@
     </scenes>
     <resources>
         <image name="No Trump1024" width="1024" height="1024"/>
-        <image name="clubs1024" width="85.333335876464844" height="85.333335876464844"/>
+        <image name="clubs1024" width="1024" height="1024"/>
         <image name="diamonds1024" width="1024" height="1024"/>
         <image name="hearts1024" width="1024" height="1024"/>
         <image name="spades1024" width="1024" height="1024"/>
-        <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>
