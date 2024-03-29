@@ -60,13 +60,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     @IBAction func calculateButton(_ sender: UIButton) {
         let suit = String(vuln) + String(contractLevel) + minorMajor
-        print("suit \(suit), tricksTaken \(tricksTaken), vul \(vuln), double \(double)")
         expectedScore.text = String(cb.expectedScoreCalc(result: tricksTaken, hcp: totalHCP, vulnNum: vulnNum))
-        print("expected score went ok")
         actualScore.text = String(cb.contractScoreCalc(vulnNum: vulnNum, suit: suit, result: tricksTaken, double: double))
-        print("actual score went ok")
         impPoints.text = cb.impPoints(suit: suit, result: tricksTaken, vulnNum: vulnNum, double: double)
-        print("imp points went ok")
     }
     
     

@@ -34,7 +34,7 @@ struct   CalculatorBrain {
             expectedScore = tables.expectedScoreDifference[otherTeamScoreAbove20][vulnNum]
             expectedScore = -expectedScore
         }
-        print("expected score is \(expectedScore)")
+
         return expectedScore
     }
     
@@ -43,7 +43,6 @@ struct   CalculatorBrain {
          if result >= 0 {
              contractScore = bridgeScoreLookup(suit: suit, result: result, double: double)
         } else {
-            print("result was \(result), so abs result + 1 is \(abs(result-1))")
             if vulnNum == 1 {
                  contractScore = tables.downN[abs(result + 1)][double]
             } else {
@@ -51,7 +50,6 @@ struct   CalculatorBrain {
             }
             contractScore = -contractScore
         }
-        print("contract score is \(contractScore)")
         return contractScore
     }
     
