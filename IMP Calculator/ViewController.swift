@@ -175,6 +175,12 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
     }
     
+    @IBAction func infoButton(_ sender: UIButton) {
+        
+        if let url = URL(string: "https://panstate.net/index.php/support-pages/simple-imp-calculator/"){
+            UIApplication.shared.open(url)
+        }
+    }
     
     
 }
