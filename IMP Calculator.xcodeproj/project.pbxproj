@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A42254D32BA3ABD1004EBF0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42254D22BA3ABD1004EBF0C /* AppDelegate.swift */; };
 		A42254D52BA3ABD1004EBF0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42254D42BA3ABD1004EBF0C /* SceneDelegate.swift */; };
-		A42254D72BA3ABD1004EBF0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42254D62BA3ABD1004EBF0C /* ViewController.swift */; };
 		A42254DA2BA3ABD1004EBF0C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A42254D92BA3ABD1004EBF0C /* Base */; };
 		A42254DF2BA3ABD2004EBF0C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A42254DE2BA3ABD2004EBF0C /* Base */; };
 		A42254EA2BA3ABD3004EBF0C /* IMP_CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42254E92BA3ABD3004EBF0C /* IMP_CalculatorTests.swift */; };
@@ -18,8 +17,7 @@
 		A42E43972BA3E80D0090C4C3 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42E43942BA3E80D0090C4C3 /* CalculatorBrain.swift */; };
 		A42E43982BA3E80D0090C4C3 /* Tables.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42E43952BA3E80D0090C4C3 /* Tables.swift */; };
 		A42E43A52BA3FBFE0090C4C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A42E43A42BA3FBFE0090C4C3 /* Assets.xcassets */; };
-		A4D5848E2BB3340300C1814A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42254D62BA3ABD1004EBF0C /* ViewController.swift */; };
-		A4D5848F2BB3340300C1814A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42254D62BA3ABD1004EBF0C /* ViewController.swift */; };
+		A4B872832BB8AF2D006C88C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42254D62BA3ABD1004EBF0C /* ViewController.swift */; };
 		A4D584912BB3375000C1814A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D584902BB3375000C1814A /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -298,8 +296,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4B872832BB8AF2D006C88C8 /* ViewController.swift in Sources */,
 				A42E43982BA3E80D0090C4C3 /* Tables.swift in Sources */,
-				A42254D72BA3ABD1004EBF0C /* ViewController.swift in Sources */,
 				A42254D32BA3ABD1004EBF0C /* AppDelegate.swift in Sources */,
 				A42E43972BA3E80D0090C4C3 /* CalculatorBrain.swift in Sources */,
 				A42254D52BA3ABD1004EBF0C /* SceneDelegate.swift in Sources */,
@@ -310,7 +308,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4D5848F2BB3340300C1814A /* ViewController.swift in Sources */,
 				A42254EA2BA3ABD3004EBF0C /* IMP_CalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,7 +316,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4D5848E2BB3340300C1814A /* ViewController.swift in Sources */,
 				A42254F42BA3ABD3004EBF0C /* IMP_CalculatorUITests.swift in Sources */,
 				A42254F62BA3ABD3004EBF0C /* IMP_CalculatorUITestsLaunchTests.swift in Sources */,
 			);
@@ -556,10 +552,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QGRR695L8T;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.panstate.IMP-CalculatorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -576,10 +576,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QGRR695L8T;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.panstate.IMP-CalculatorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
