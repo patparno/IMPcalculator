@@ -86,7 +86,6 @@
 		A42254C62BA3ABD1004EBF0C = {
 			isa = PBXGroup;
 			children = (
-				A4D584902BB3375000C1814A /* Assets.xcassets */,
 				A42E43962BA3E80D0090C4C3 /* Models */,
 				A42254D12BA3ABD1004EBF0C /* IMP Calculator */,
 				A42254E82BA3ABD3004EBF0C /* IMP CalculatorTests */,
@@ -108,6 +107,7 @@
 		A42254D12BA3ABD1004EBF0C /* IMP Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				A4D584902BB3375000C1814A /* Assets.xcassets */,
 				A42254D22BA3ABD1004EBF0C /* AppDelegate.swift */,
 				A42254D42BA3ABD1004EBF0C /* SceneDelegate.swift */,
 				A42254D62BA3ABD1004EBF0C /* ViewController.swift */,
