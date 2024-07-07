@@ -37,6 +37,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     @IBOutlet weak var calculateButton: UIButton!
     
+    @IBOutlet var resetButton: UIView!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -182,5 +183,18 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
     }
     
+    @IBAction func resetButton (_ sender: UIButton){
+         hcpList = (10...40).map {$0}
+         resultList = (-7...1).map {String($0)}
+         contractLevel = 1
+         minorMajor = "Major"
+         double = 0
+         vuln = "N"
+         vulnNum = 1
+         totalHCP = 15
+         tricksTaken = 1
+         tricksTakenText = "10"
+        resetSuits()
+    }
     
 }

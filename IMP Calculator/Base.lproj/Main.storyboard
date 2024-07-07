@@ -3,7 +3,7 @@
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -153,26 +153,6 @@
                                     <action selector="vulnSelector:" destination="BYZ-38-t0r" eventType="valueChanged" id="7P9-fb-vXF"/>
                                 </connections>
                             </segmentedControl>
-                            <button toolTip="choose contract first" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="249" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ql-db-fvC">
-                                <rect key="frame" x="146.66666666666666" y="804" width="120.99999999999997" height="43"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <buttonConfiguration key="configuration" style="plain" title="Calculate" cornerStyle="capsule">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
-                                    <color key="baseForegroundColor" red="0.030722830440000001" green="0.0063252393160000003" blue="0.0062251570629999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="calculateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SIR-U4-tyA"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQm-xN-lRk">
                                 <rect key="frame" x="310" y="709.33333333333337" width="14" height="26.333333333333371"/>
                                 <attributedString key="attributedText">
@@ -260,6 +240,38 @@
                                     <action selector="infoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aGg-Nf-lSZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rYv-jN-DFa">
+                                <rect key="frame" x="172.66666666666666" y="824" width="74" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Reset" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button toolTip="choose contract first" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="249" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ql-db-fvC">
+                                <rect key="frame" x="146.66666666666666" y="594" width="120.99999999999997" height="43"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="tinted" title="Calculate" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.94737971409999999" green="0.96862745100000003" blue="0.0192945915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="calculateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SIR-U4-tyA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.79571230400624937" green="0.99773257613693622" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -271,6 +283,7 @@
                             <constraint firstItem="E5U-bo-kjK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="7GX-cy-ZS1"/>
                             <constraint firstItem="Ys3-zh-hwI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="80g-Pk-k7a"/>
                             <constraint firstItem="jk4-d8-YOp" firstAttribute="top" secondItem="8FP-wI-Gd6" secondAttribute="bottom" constant="25" id="863-m3-FlL"/>
+                            <constraint firstItem="rYv-jN-DFa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="8yo-S4-b0Z"/>
                             <constraint firstItem="TVG-O5-RSJ" firstAttribute="top" secondItem="Ys3-zh-hwI" secondAttribute="bottom" constant="29" id="96N-PI-Cpf"/>
                             <constraint firstItem="DvM-mp-5dV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="275" id="9Qh-PN-kbk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eQm-xN-lRk" secondAttribute="trailing" constant="90" id="9m1-jg-OIu"/>
@@ -290,6 +303,7 @@
                             <constraint firstItem="YIv-aK-ACe" firstAttribute="top" secondItem="E5U-bo-kjK" secondAttribute="bottom" constant="80" id="SSZ-Ft-pHu"/>
                             <constraint firstItem="eZv-84-ZJ8" firstAttribute="top" secondItem="wY2-1a-B4M" secondAttribute="bottom" constant="8" id="V3P-J1-Nqu"/>
                             <constraint firstItem="P8d-bi-M8d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="114" id="VUY-BN-dxw"/>
+                            <constraint firstItem="rYv-jN-DFa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="2.5" id="WMW-qJ-Y94"/>
                             <constraint firstItem="wY2-1a-B4M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="XAQ-Pm-xDS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wY2-1a-B4M" secondAttribute="bottom" constant="126" id="XDh-Ru-vEb"/>
                             <constraint firstItem="2ac-hz-y1L" firstAttribute="leading" secondItem="E5U-bo-kjK" secondAttribute="leading" id="XPl-Bu-199"/>
@@ -318,7 +332,7 @@
                             <constraint firstItem="YIv-aK-ACe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="vin-hO-KD8"/>
                             <constraint firstItem="Rpl-c2-w0b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="wxb-HA-byN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TVG-O5-RSJ" secondAttribute="trailing" constant="73" id="y9F-aF-zhG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3Ql-db-fvC" secondAttribute="bottom" constant="15" id="z6i-bo-Q0U"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3Ql-db-fvC" secondAttribute="bottom" constant="225" id="z6i-bo-Q0U"/>
                             <constraint firstItem="jk4-d8-YOp" firstAttribute="leading" secondItem="8FP-wI-Gd6" secondAttribute="leading" id="zuf-LQ-rKo"/>
                         </constraints>
                     </view>
@@ -330,6 +344,7 @@
                         <outlet property="expectedScore" destination="eQm-xN-lRk" id="70r-2u-4Ok"/>
                         <outlet property="hcpPicker" destination="8FP-wI-Gd6" id="pls-S3-u9b"/>
                         <outlet property="impPoints" destination="GkH-Jh-bc3" id="3Z5-O5-cdQ"/>
+                        <outlet property="resetButton" destination="8bC-Xf-vdC" id="rvR-qZ-TH0"/>
                         <outlet property="suitSelector" destination="TVG-O5-RSJ" id="Tzd-9v-BOV"/>
                         <outlet property="tricksTakenPicker" destination="jk4-d8-YOp" id="YYQ-aw-1De"/>
                         <outlet property="vulnSelector" destination="dCZ-kY-Lmd" id="IA5-oI-S6z"/>
@@ -337,7 +352,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="71.200000000000003" y="-28.078817733990149"/>
+            <point key="canvasLocation" x="71.014492753623188" y="-28.125"/>
         </scene>
     </scenes>
     <resources>
@@ -349,6 +364,9 @@
         <image name="spades1024" width="1024" height="1024"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
