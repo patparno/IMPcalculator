@@ -186,7 +186,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     @IBAction func resetButton(_ sender: UIButton) {
-        print("Reset button pressed")
         hcpList = (10...40).map { $0 }
         resultList = (-7...1).map { String($0) }
         contractLevel = 1
