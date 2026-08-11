@@ -20,7 +20,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     var vuln: Vulnerability = .notVulnerable
     var totalHCP = 15
     var tricksTaken = 1
-    var tricksTakenText = "10"
     
     @IBOutlet weak var hcpPicker: UIPickerView!
     @IBOutlet weak var tricksTakenPicker: UIPickerView!
@@ -69,12 +68,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     
     @IBAction func contractSelector(_ sender: UISegmentedControl) {
-        contractLevel = contractSelector.selectedSegmentIndex + 1
-       
+        // Clamped because the score tables only cover contract levels 1-7;
+        // an out-of-range level would build a table key nothing can match.
+        contractLevel = min(max(contractSelector.selectedSegmentIndex + 1, 1), 7)
+
         let leftEdge = -(contractLevel + 6)
         let rightEdge = 7 - contractLevel
         resultList = (leftEdge...rightEdge).map { String($0 > 0 ? "+\($0)" : "\($0)") }
-        //self.tricksTakenPicker.isUserInteractionEnabled = true
         self.tricksTakenPicker.reloadAllComponents()
 
     }
@@ -151,7 +151,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         case  0:
             totalHCP = hcpList[row]
         case 1:
-            tricksTaken = Int(resultList[row])!
+            tricksTaken = Int(resultList[row]) ?? 0
             calculateButton.backgroundColor = UIColor.yellow
             self.calculateButton.isEnabled = true
             self.calculateButton.isUserInteractionEnabled = true
@@ -191,7 +191,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         vuln = .notVulnerable
         totalHCP = 15
         tricksTaken = 1
-        tricksTakenText = "10"
         resetSuits()
         resetBoard()
     }
