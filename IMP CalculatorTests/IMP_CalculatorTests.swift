@@ -126,37 +126,33 @@ final class IMP_CalculatorTests: XCTestCase {
     // MARK: - impPoints (IMP conversion)
 
     func testImpPointsPositiveWhenActualBeatsExpected() {
-        // expectedScoreCalc must run first: it populates cb.expectedScore, which
-        // impPoints() reads as a side effect rather than accepting as a parameter.
-        _ = cb.expectedScoreCalc(result: 0, hcp: 25, vulnNum: 1) // expected = 400
-        let imps = cb.impPoints(suit: "N4Major", result: 0, vulnNum: 1, double: 0) // actual = 420, diff = 20
+        let expected = cb.expectedScoreCalc(result: 0, hcp: 25, vulnNum: 1) // expected = 400
+        let imps = cb.impPoints(expectedScore: expected, suit: "N4Major", result: 0, vulnNum: 1, double: 0) // actual = 420, diff = 20
         XCTAssertEqual(imps, "1")
     }
 
     func testImpPointsNegativeWhenActualUnderperformsExpected() {
-        _ = cb.expectedScoreCalc(result: 0, hcp: 25, vulnNum: 1) // expected = 400
-        let imps = cb.impPoints(suit: "N1Major", result: -1, vulnNum: 1, double: 0) // actual = -50, diff = 450
+        let expected = cb.expectedScoreCalc(result: 0, hcp: 25, vulnNum: 1) // expected = 400
+        let imps = cb.impPoints(expectedScore: expected, suit: "N1Major", result: -1, vulnNum: 1, double: 0) // actual = -50, diff = 450
         XCTAssertEqual(imps, "-10")
     }
 
     func testImpPointsSmallDifferenceRoundsToFewImps() {
-        _ = cb.expectedScoreCalc(result: 0, hcp: 20, vulnNum: 1) // expected = 0
-        let imps = cb.impPoints(suit: "N1Minor", result: 0, vulnNum: 1, double: 0) // actual = 70, diff = 70
+        let expected = cb.expectedScoreCalc(result: 0, hcp: 20, vulnNum: 1) // expected = 0
+        let imps = cb.impPoints(expectedScore: expected, suit: "N1Minor", result: 0, vulnNum: 1, double: 0) // actual = 70, diff = 70
         XCTAssertEqual(imps, "2")
     }
 
-    func testImpPointsWithoutPriorExpectedScoreCalcUsesStaleDefault() {
-        // Known footgun: impPoints() does not call expectedScoreCalc() itself, so on a
-        // freshly constructed CalculatorBrain it reads the struct's default
-        // expectedScore of -1 instead of a real expected score. Since -1 is not a
-        // multiple of 10 (every real bridge score is), the resulting score
-        // difference falls into a gap the IMP table never intended to cover, and
-        // findMinElement silently falls back to its initial value of 24 -
-        // the maximum IMP swing - rather than a value reflecting the true difference.
+    func testImpPointsDoesNotDependOnPriorCallsOnTheSameInstance() {
+        // Regression guard for a fixed bug: impPoints() used to read expectedScore
+        // from mutable struct state that only got populated if expectedScoreCalc()
+        // happened to be called first on that same instance. Now expectedScore is a
+        // required parameter, so a brand-new instance that never ran
+        // expectedScoreCalc() itself still produces the correct result.
+        let expected = cb.expectedScoreCalc(result: 0, hcp: 25, vulnNum: 1) // expected = 400
         let freshBrain = CalculatorBrain()
-        var mutableBrain = freshBrain
-        let imps = mutableBrain.impPoints(suit: "N4Major", result: 0, vulnNum: 1, double: 0)
-        XCTAssertEqual(imps, "24", "documents the current (incorrect) fallback behavior when expectedScoreCalc isn't called first")
+        let imps = freshBrain.impPoints(expectedScore: expected, suit: "N4Major", result: 0, vulnNum: 1, double: 0)
+        XCTAssertEqual(imps, "1")
     }
 
     // MARK: - findMinElement (IMP scale lookup)

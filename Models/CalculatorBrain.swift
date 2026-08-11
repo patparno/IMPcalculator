@@ -9,48 +9,41 @@ import Foundation
 
 struct   CalculatorBrain {
     var tables = Tables()
-    var expectedScore = -1
-    var contractScore = -1
 
-    
-    mutating func impPoints (suit:String,result:Int,vulnNum:Int,double:Int) -> String {
-      //  expectedScore = expectedScoreCalc(result:result,hcp:hcp,vulnNum:vulnNum)
-        contractScore = contractScoreCalc(vulnNum:vulnNum,suit:suit,result:result,double:double)
+    func impPoints (expectedScore:Int,suit:String,result:Int,vulnNum:Int,double:Int) -> String {
+        let contractScore = contractScoreCalc(vulnNum:vulnNum,suit:suit,result:result,double:double)
 
         let scoreDiff = abs(contractScore - expectedScore)
         var impPoints = findMinElement(scoreDiff: scoreDiff)
-        
+
         if (contractScore - expectedScore) < 0 { impPoints = -impPoints}
         return String(impPoints)
     }
-    
-    mutating func expectedScoreCalc (result:Int,hcp:Int,vulnNum:Int) ->Int {
+
+    func expectedScoreCalc (result:Int,hcp:Int,vulnNum:Int) ->Int {
 
         let hcpMoreThanTwenty = hcp - 20 //tables are set up for hcp>20
         if hcpMoreThanTwenty >= 0 {
-            expectedScore = tables.expectedScoreDifference[hcpMoreThanTwenty][vulnNum]
+            return tables.expectedScoreDifference[hcpMoreThanTwenty][vulnNum]
         } else {
             let otherTeamScoreAbove20 = -hcpMoreThanTwenty // what the other team has (and should have declared
-            expectedScore = tables.expectedScoreDifference[otherTeamScoreAbove20][vulnNum]
-            expectedScore = -expectedScore
+            return -tables.expectedScoreDifference[otherTeamScoreAbove20][vulnNum]
         }
-
-        return expectedScore
     }
-    
-    mutating func contractScoreCalc (vulnNum:Int,suit:String,result:Int,double:Int) -> Int {
+
+    func contractScoreCalc (vulnNum:Int,suit:String,result:Int,double:Int) -> Int {
 
          if result >= 0 {
-             contractScore = bridgeScoreLookup(suit: suit, result: result, double: double)
+             return bridgeScoreLookup(suit: suit, result: result, double: double)
         } else {
+            let downScore: Int
             if vulnNum == 1 {
-                 contractScore = tables.downN[abs(result + 1)][double]
+                 downScore = tables.downN[abs(result + 1)][double]
             } else {
-                contractScore = tables.downV[abs(result + 1)][double]
+                downScore = tables.downV[abs(result + 1)][double]
             }
-            contractScore = -contractScore
+            return -downScore
         }
-        return contractScore
     }
     
     
