@@ -15,13 +15,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     var hcpList = (10...40).map {$0}
     var resultList = (-7...1).map {String($0)}
     var contractLevel = 1
-    var minorMajor = "Major"
-    var double = 0
-    var vuln = "N"
-    var vulnNum = 1
+    var strain: Strain = .major
+    var double: DoubleState = .undoubled
+    var vuln: Vulnerability = .notVulnerable
     var totalHCP = 15
     var tricksTaken = 1
-    var tricksTakenText = "10"
     
     @IBOutlet weak var hcpPicker: UIPickerView!
     @IBOutlet weak var tricksTakenPicker: UIPickerView!
@@ -62,20 +60,21 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     @IBAction func calculateButton(_ sender: UIButton) {
-        let suit = String(vuln) + String(contractLevel) + minorMajor
-        expectedScore.text = String(cb.expectedScoreCalc(result: tricksTaken, hcp: totalHCP, vulnNum: vulnNum))
-        actualScore.text = String(cb.contractScoreCalc(vulnNum: vulnNum, suit: suit, result: tricksTaken, double: double))
-        impPoints.text = cb.impPoints(suit: suit, result: tricksTaken, vulnNum: vulnNum, double: double)
+        let expected = cb.expectedScoreCalc(hcp: totalHCP, vuln: vuln)
+        expectedScore.text = String(expected)
+        actualScore.text = String(cb.contractScoreCalc(vuln: vuln, level: contractLevel, strain: strain, result: tricksTaken, double: double))
+        impPoints.text = cb.impPoints(expectedScore: expected, vuln: vuln, level: contractLevel, strain: strain, result: tricksTaken, double: double)
     }
     
     
     @IBAction func contractSelector(_ sender: UISegmentedControl) {
-        contractLevel = contractSelector.selectedSegmentIndex + 1
-       
+        // Clamped because the score tables only cover contract levels 1-7;
+        // an out-of-range level would build a table key nothing can match.
+        contractLevel = min(max(contractSelector.selectedSegmentIndex + 1, 1), 7)
+
         let leftEdge = -(contractLevel + 6)
         let rightEdge = 7 - contractLevel
         resultList = (leftEdge...rightEdge).map { String($0 > 0 ? "+\($0)" : "\($0)") }
-        //self.tricksTakenPicker.isUserInteractionEnabled = true
         self.tricksTakenPicker.reloadAllComponents()
 
     }
@@ -83,24 +82,24 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBAction func suitSelector(_ sender: UISegmentedControl) {
 
         switch sender.selectedSegmentIndex {
-        case 0: 
-            minorMajor = "Minor"
+        case 0:
+            strain = .minor
             resetSuits()
             suitSelector.setImage(UIImage(named: "clubs1024white"), forSegmentAt: 0)
         case 1:
-            minorMajor = "Minor"
+            strain = .minor
             resetSuits()
             suitSelector.setImage(UIImage(named: "diamonds1024blue"), forSegmentAt: 1)
         case 2:
-            minorMajor = "Major"
+            strain = .major
             resetSuits()
             suitSelector.setImage(UIImage(named: "hearts1024blue"), forSegmentAt: 2)
         case 3:
-            minorMajor = "Major"
+            strain = .major
             resetSuits()
             suitSelector.setImage(UIImage(named: "spades1024white"), forSegmentAt: 3)
         case 4:
-            minorMajor = "NT"
+            strain = .notrump
             resetSuits()
             suitSelector.setImage(UIImage(named: "No Trump1024black"), forSegmentAt: 4)
         default: break
@@ -110,27 +109,25 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBAction func doubleSelector(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            double = 0
+            double = .undoubled
         case 1:
-            double = 1
+            double = .doubled
         case 2:
-            double = 2
+            double = .redoubled
         default: break
         }
-        
+
     }
-    
+
     @IBAction func vulnSelector(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            vuln = "N"
-            vulnNum = 1
+            vuln = .notVulnerable
         case 1:
-            vuln = "V"
-            vulnNum = 2
+            vuln = .vulnerable
         default: break
         }
-        
+
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -154,7 +151,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         case  0:
             totalHCP = hcpList[row]
         case 1:
-            tricksTaken = Int(resultList[row])!
+            tricksTaken = Int(resultList[row]) ?? 0
             calculateButton.backgroundColor = UIColor.yellow
             self.calculateButton.isEnabled = true
             self.calculateButton.isUserInteractionEnabled = true
@@ -189,13 +186,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         hcpList = (10...40).map { $0 }
         resultList = (-7...1).map { String($0) }
         contractLevel = 1
-        minorMajor = "Major"
-        double = 0
-        vuln = "N"
-        vulnNum = 1
+        strain = .major
+        double = .undoubled
+        vuln = .notVulnerable
         totalHCP = 15
         tricksTaken = 1
-        tricksTakenText = "10"
         resetSuits()
         resetBoard()
     }

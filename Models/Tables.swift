@@ -85,6 +85,32 @@ struct Tables {
     let impPoints = [[0,10,0],[20,40,1],[50,80,2],[90,120,3],[130,160,4],[170,210,5],[220,260,6],[270,310,7],[320,360,8],[370,420,9],[430,490,10],[500,590,11],[600,740,12],[750,890,13],[900,1090,14],[1100,1290,15],[1300,1490,16],[1500,1740,17],[1750,1990,18],[2000,2240,19],[2250,2490,20],[2500,2990,21],[3000,3490,22],[3500,3990,23],[4000,10000,24]]
     
     let suit = ["Clubs","Diamonds","Hearts","Spades","No Trump"]
-    
-    
+
+    let allContracts: [String: [[Int]]]
+
+    init() {
+        allContracts = [
+            "N1Minor": N1Minor, "V1Minor": V1Minor,
+            "N1Major": N1Major, "V1Major": V1Major,
+            "N1NT": N1NT, "V1NT": V1NT,
+            "N2Minor": N2Minor, "V2Minor": V2Minor,
+            "N2Major": N2Major, "V2Major": V2Major,
+            "N2NT": N2NT, "V2NT": V2NT,
+            "N3Minor": N3Minor, "V3Minor": V3Minor,
+            "N3Major": N3Major, "V3Major": V3Major,
+            "N3NT": N3NT, "V3NT": V3NT,
+            "N4Minor": N4Minor, "V4Minor": V4Minor,
+            "N4Major": N4Major, "V4Major": V4Major,
+            "N4NT": N4NT, "V4NT": V4NT,
+            "N5Minor": N5Minor, "V5Minor": V5Minor,
+            "N5Major": N5Major, "V5Major": V5Major,
+            "N5NT": N5NT, "V5NT": V5NT,
+            "N6Minor": N6Minor, "V6Minor": V6Minor,
+            "N6Major": N6Major, "V6Major": V6Major,
+            "N6NT": N6NT, "V6NT": V6NT,
+            "N7Minor": N7Minor, "V7Minor": V7Minor,
+            "N7Major": N7Major, "V7Major": V7Major,
+            "N7NT": N7NT, "V7NT": V7NT,
+        ]
+    }
 }
